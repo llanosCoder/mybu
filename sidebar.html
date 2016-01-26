@@ -1,0 +1,45 @@
+<div class="cl-sidebar" data-position="right">
+    <div class="cl-toggle"><i class="fa fa-bars"></i>
+    </div>
+    <div class="cl-navblock">
+        <div class="menu-space">
+            <div class="content">
+
+                <ul class="cl-vnavigation">
+                    <div class="text-right" style="padding:7px 9px;">
+                        <button class="btn btn-default sidebar-collapse" style="margin: 0 !important; background: transparent; box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.1) inset; border: 1px solid rgba(0, 0, 0, 0.25); border-radius: 2px;"><i style="color:#fff;" class="fa fa-angle-left"></i>
+                        </button>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div class="text-right collapse-button" style="padding:7px 9px;">
+            <button class="btn btn-default sidebar-collapse" style=""><i style="color:#fff;" class="fa fa-angle-left"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var url = 'classes/obtener_sidebar.php';
+        $.post(url, {},
+            function (data) {
+                $('.cl-vnavigation').append(data);
+                
+            }
+        ).done(function () {
+            App.init({
+                nanoScroller: false
+            });
+
+            App.dashBoard();
+        });
+
+        //initialize the javascript
+
+
+        //introJs().setOption('showBullets', false).start();
+
+    });
+</script>

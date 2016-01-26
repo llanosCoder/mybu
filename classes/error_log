@@ -1,0 +1,22 @@
+[21-Sep-2015 17:05:47 America/Santiago] PHP Parse error:  syntax error, unexpected 'style' (T_STRING) in /home/mybu/public_html/classes/excel.model.php on line 208
+[21-Sep-2015 17:06:41 America/Santiago] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Invalid cell coordinate -1' in /home/mybu/public_html/classes/PHPExcel/Cell.php:558
+Stack trace:
+#0 /home/mybu/public_html/classes/PHPExcel/Style.php(236): PHPExcel_Cell::coordinateFromString('-1')
+#1 /home/mybu/public_html/classes/excel.model.php(208): PHPExcel_Style->applyFromArray(Array)
+#2 /home/mybu/public_html/classes/a_excel.php(11): AExcel->cierre_caja('2', '3')
+#3 {main}
+  thrown in /home/mybu/public_html/classes/PHPExcel/Cell.php on line 558
+[21-Sep-2015 17:07:16 America/Santiago] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Invalid cell coordinate -1' in /home/mybu/public_html/classes/PHPExcel/Cell.php:558
+Stack trace:
+#0 /home/mybu/public_html/classes/PHPExcel/Style.php(236): PHPExcel_Cell::coordinateFromString('-1')
+#1 /home/mybu/public_html/classes/excel.model.php(208): PHPExcel_Style->applyFromArray(Array)
+#2 /home/mybu/public_html/classes/a_excel.php(11): AExcel->cierre_caja('2', '3')
+#3 {main}
+  thrown in /home/mybu/public_html/classes/PHPExcel/Cell.php on line 558
+[21-Sep-2015 17:07:47 America/Santiago] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Invalid cell coordinate -1' in /home/mybu/public_html/classes/PHPExcel/Cell.php:558
+Stack trace:
+#0 /home/mybu/public_html/classes/PHPExcel/Style.php(236): PHPExcel_Cell::coordinateFromString('-1')
+#1 /home/mybu/public_html/classes/excel.model.php(208): PHPExcel_Style->applyFromArray(Array)
+#2 /home/mybu/public_html/classes/a_excel.php(11): AExcel->cierre_caja('2', '3')
+#3 {main}
+  thrown in /home/mybu/public_html/classes/PHPExcel/Cell.php on line 558

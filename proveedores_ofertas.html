@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Jaime Llanos">
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <title>mybu</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:300,200,100' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap core CSS -->
+    <link href="js/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="js/jquery.gritter/css/jquery.gritter.css" />
+
+    <link rel="stylesheet" href="fonts/font-awesome-4/css/font-awesome.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+	  <script src="http://foxythemes.net/assets/js/html5shiv.js"></script>
+	  <script src="http://foxythemes.net/assets/js/respond.min.js"></script>
+	<![endif]-->
+    <link rel="stylesheet" type="text/css" href="js/jquery.nanoscroller/nanoscroller.css" />
+    <link rel="stylesheet" type="text/css" href="js/jquery.easypiechart/jquery.easy-pie-chart.css" />
+    <link rel="stylesheet" type="text/css" href="js/bootstrap.switch/bootstrap-switch.css" />
+    <link rel="stylesheet" type="text/css" href="js/bootstrap.datetimepicker/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="js/bootstrap.slider/css/slider.css" />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/css.css" rel="stylesheet" />
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="js/jquery.datatables/bootstrap-adapter/css/datatables.css" />
+    <link rel="stylesheet" type="text/css" href="js/jquery.niftymodals/css/component.css" />
+    <link rel="stylesheet" type="text/css" href="js/bootstrap-toggle-master/css/bootstrap-toggle.min.css" />
+    <link href="js/jquery.icheck/skins/square/blue.css" rel="stylesheet">
+    <!-- include the core styles -->
+    <link rel="stylesheet" href="js/alertify/css/alertify.min.css" />
+    <!-- include a theme, can be included into the core instead of 2 separate files -->
+    <link rel="stylesheet" href="js/alertify/css/themes/bootstrap.min.css" />
+    <link href="js/spinner/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" type="text/css" href="js/select2-4.0.0-beta.3/dist/css/select2.css" />
+</head>
+
+<body>
+    <noscript>
+        <meta HTTP-EQUIV="Refresh" CONTENT="0;URL=no-index.html">
+    </noscript>
+    <!-- Fixed navbar -->
+    <div id="head-nav" class="navbar navbar-default navbar-fixed-top">
+    </div>
+
+    <button id="btn_comprar" class="btn btn-primary" data-modal="form-comprar">(<i class="fa fa-shopping-cart fa-2x"></i>
+        <label id="btn_comprar_nro_items"></label>) Comprar</button>
+    <div class="fixed-menu" id="cl-wrapper">
+        <div class="cl-sidebar">
+        </div>
+        <div class="page-aside app tree">
+            <div class="fixed nano nscroller">
+                <div class="content" id="contenidoCategorias">
+                    <div class="header">
+                        <h2 class="page-title">Productos por categoría</h2>
+                        <!--<p class="description">Service description</p>-->
+                    </div>
+                    <div class="tree-body">
+                        <ul class="nav nav-list treeview collapse">
+                            <li>
+                                <label class="tree-toggler nav-header" id="btn_administrar"><i class="fa fa-cog"></i> Administrar mis ofertas</label>
+                            </li>
+                            <li>
+                                <label class="tree-toggler nav-header" id="btn_mostrar"><i class="fa fa-eye"></i> Ver ofertas de terceros</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tree-footer">
+                        <button class="btn btn-primary pull-right btn-bottom agregar_oferta" onClick="agregarOferta();" data-modal="form-agregar-oferta" id="btn_agregar"><i class="fa fa-plus"></i> Agregar ofertas</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div id="filter-wrapper" style="position: relative;margin-top: 1%;margin-left: 3%;width: 95%;">
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="pull-right">Filtros</label>
+                </div>
+            </div>
+            <div class="row" style="z-index: 2">
+                <div class="col-md-8">
+                </div>
+                <div class="form-group col-md-4 pull-right no-margin">
+                    <select class="form-control" id="select_filtros" name="select_filtros">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" id="contenido_ofertas">
+
+            <div id="tabla_ofertas_cont"></div>
+        </div>
+        <div class="container-fluid" id="contenido_admin">
+            <div class="row">
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+                <br/>
+                <br/>
+                <div id="tabla_ofertas_cont2"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="md-modal colored-header custom-width md-effect-7" id="form-agregar-oferta">
+        <div class="md-content" style="background-color:#ffffff !important; color: #555;">
+            <div class="modal-header">
+                <h3 class="modal-title"></h3>
+            </div>
+            <div class="modal-body form" id="form-agregar-marca-body">
+                <form class="formulario">
+                    <div id="form-agregar-oferta-pag-1">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label>Descripción</label>
+                                <input type="text" id="descripcion" name="descripcion" class="form-control pag-1 required" placeholder="Descripción">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 no-margin">
+                                <label>Cantidad de productos a la oferta</label>
+                                <input type="text" id="cantidad" name="cantidad" class="form-control pag-1 required" placeholder="Cantidad">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label>Tipo</label>
+                                <select class="form-control pag-2" id="tipo_oferta" name="tipo_oferta">
+                                    <option value="0"></option>
+                                    <option value="1">Por precio</option>
+                                    <option value="2">Por descuento</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 no-margin">
+                                <label>Precio</label>
+                                <input type="text" id="precio" name="precio" class="form-control pag-1" placeholder="Precio">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 no-margin">
+                                <label>Descuento</label>
+                                <input type="text" id="descuento" name="descuento" class="form-control pag-1" placeholder="Descuento">
+                            </div>
+                        </div>
+                        <br/>
+                        <button type="button" id="btn_pag1_sgte" class="btn btn-primary btn-flat" onClick="avanzarRetrocederModal(1, true);">Seguir</button>
+                    </div>
+                    <!--Form página 1-->
+
+                    <div id="form-agregar-oferta-pag-2">
+                        <div class="row">
+                            <div class="form-group col-md-12 no-margin">
+                                <label>Tipo de caducidad</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <div class="btn-group" data-toggle="buttons">
+
+                                        <label class="btn btn-default active" id="radio_fecha">
+                                            <input type="radio" name="rad1" autocomplete="off" checked> Por fecha
+                                        </label>
+                                        <label class="btn btn-default" id="radio_stock">
+                                            <input type="radio" name="rad1" autocomplete="off"> Por stock
+                                        </label>
+                                        <label class="btn btn-default" id="radio_mixta">
+                                            <input type="radio" name="rad1" autocomplete="off"> Mixta
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="form-group col-md-12 no-margin">
+                                <label>Fechas de la promoción</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group date datetime" data-date="2015-03-01T05:25:07Z" data-date-format="yyyy-mm-dd - hh:ii" data-link-field="dtp_input1">
+
+                                    <input class="form-control required" size="16" type="text" value="" id="f_inicio" placeholder="Fecha Inicio">
+                                    <span class="input-group-addon btn btn-primary" id="btn_f_inicio"><span class="glyphicon glyphicon-th"></span></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group date datetime" data-date="2015-03-01T05:25:07Z" data-date-format="yyyy-mm-dd - hh:ii" data-link-field="dtp_input1">
+                                    <input class="form-control required" size="16" type="text" value="" id="f_termino" placeholder="Fecha Término">
+                                    <span class="input-group-addon btn btn-primary" id="btn_f_termino"><span class="glyphicon glyphicon-th"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Stock</label>
+                            <input type="text" id="stock" name="stock" class="form-control pag-1 stock numeric" disabled placeholder="Stock">
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 no-margin">
+                                <label>Alcance de la promoción</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-sm-12" id="group_radio_sucursal">
+                                    <div class="btn-group" data-toggle="buttons">
+
+                                        <label class="btn btn-default active" id="radio_sucursal">
+                                            <input type="radio" name="rad2" autocomplete="off" checked> Esta Sucursal
+                                        </label>
+                                        <label class="btn btn-default" id="radio_global">
+                                            <input type="radio" name="rad2" autocomplete="off"> Todas las Sucursales
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <button type="button" id="btn_pag2_atras" class="btn btn-primary btn-flat" onClick="avanzarRetrocederModal(2, false);">Atrás</button>
+                        <button type="button" id="btn_pag2_sgte" class="btn btn-primary btn-flat" onClick="avanzarRetrocederModal(2, true);">Seguir</button>
+                    </div>
+                    <!--Form pagina 2-->
+                    <div id="form-agregar-oferta-pag-3">
+                        <div class="row">
+                            <div class="form-group col-md-12 no-margin">
+                                <label>Producto en oferta</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <select id="select_productos" name="select_productos" class="required" style="width:100%;">
+                                        <option value="0"></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <button type="button" id="btn_pag3_atras" class="btn btn-primary btn-flat" onClick="avanzarRetrocederModal(3, false);">Atrás</button>
+                    </div>
+                    <!--Form pagina 3-->
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_cerrar_modal" class="btn btn-default btn-flat md-close" data-dismiss="modal">Cancelar</button>
+                <button type="button" id="btn_aceptar_modal" class="btn btn-primary btn-flat">Guardar</button>
+            </div>
+        </div>
+    </div>
+    <div class="md-modal colored-header custom-width md-effect-7" id="form-procesar-control">
+        <div class="md-content" style="background-color:#ffffff !important; color: #555;">
+            <div class="modal-header">
+                <h3>Procesando...</h3>
+            </div>
+            <div class="modal-body form" id="form-agregar-marca-body">
+                <div id="loading"><i class="fa fa-spinner fa-spin fa-3x"></i>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+    <div class="md-modal colored-header custom-width md-effect-7" id="form-comprar" style="overflow: auto; height:100%;">
+        <div class="md-content" style="background-color:#ffffff !important; color: #555;">
+            <div class="modal-header">
+                <h3>Carro de compra</h3>
+            </div>
+            <div class="modal-body form" id="form-comprar-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Fecha Vencimiento</label>
+                        <div class="input-group date datetime" data-date="2015-3-1T05:25:07Z" data-date-format="yyyy-mm-dd - hh:ii" data-link-field="dtp_input1">
+                            <input class="form-control required" size="16" type="text" value="" id="f_vencimiento" placeholder="Fecha Vencimiento">
+                            <span class="input-group-addon btn btn-primary" id="btn_f_inicio"><span class="glyphicon glyphicon-th"></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="lista_tabla_compras"></div>
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        <div id="totales_comprar" class="pull-right"><span id="sub-total"></span>
+                            <br/>
+                            <span id="descuentos" style="color: green"></span>
+                            <br/>
+                            <span id="total" style="color:blue"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn-cerrar-comprar" class="btn btn-action btn-flat" style="float: left;">Cerrar</button>
+                <button type="button" id="btn_comprar_modal" class="btn btn-primary btn-flat">Comprar</button>
+            </div>
+        </div>
+    </div>
+    <div class="md-overlay"></div>
+    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/shadowbox/shadowbox.css">
+    <script type="text/javascript" src="js/shadowbox-3.0.3/shadowbox.js"></script>
+    <script src="js/dashboard/proveedores-ofertas.js"></script>
+    <script src="js/dashboard/carro-compra.js"></script>
+    <script src="js/dashboard/mayusculizar.js"></script>
+    <script src="js/dashboard/currency.js"></script>
+    <script src="js/dashboard/saneo.js"></script>
+    <script src="js/bootstrap-toggle-master/js/bootstrap-toggle.min.js"></script>
+    <script type="text/javascript" src="js/jquery.nanoscroller/jquery.nanoscroller.js"></script>
+    <script type="text/javascript" src="js/jquery.sparkline/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easypiechart/jquery.easy-pie-chart.js"></script>
+    <script type="text/javascript" src="js/behaviour/general.js"></script>
+    <script src="js/jquery.ui/jquery-ui.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.nestable/jquery.nestable.js"></script>
+    <script type="text/javascript" src="js/bootstrap.switch/bootstrap-switch.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="js/skycons/skycons.js" type="text/javascript"></script>
+    <script src="js/select2-4.0.0-beta.3/dist/js/select2.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.slider/js/bootstrap-slider.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.gritter/js/jquery.gritter.js"></script>
+
+    <script>
+        $(".cl-sidebar").load("sidebar.html");
+    </script>
+    <script type="text/javascript">
+        $("#head-nav").load("headbar.html");
+    </script>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flot/jquery.flot.js"></script>
+    <script type="text/javascript" src="js/jquery.flot/jquery.flot.pie.js"></script>
+    <script type="text/javascript" src="js/jquery.flot/jquery.flot.resize.js"></script>
+    <script type="text/javascript" src="js/jquery.flot/jquery.flot.labels.js"></script>
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="js/datatables/media/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/jquery.datatables/bootstrap-adapter/js/datatables.js"></script>
+    <script type="text/javascript" src="js/jquery.niftymodals/js/jquery.modalEffects.js"></script>
+    <script type="text/javascript" src="js/jquery.icheck/icheck.min.js"></script>
+    <script src="js/alertify/alertify.min.js"></script>
+    <script src="js/dashboard/notificaciones.js"></script>
+    <script src="js/dashboard/habilitar-deshabilitar.js"></script>
+    <script type="text/javascript" src="js/spinner/jquery.bootstrap-touchspin.js"></script>
+</body>
+
+</html>

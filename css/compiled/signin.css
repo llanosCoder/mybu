@@ -1,0 +1,271 @@
+@media (min-width: 800px) {
+    .content-promo {
+        text-align: left;
+        position: absolute;
+        left: 50px;
+        top: 150px;
+    }
+    .content-promo h1 {
+        font-weight: 100;
+        font-size: 3em;
+    }
+    
+    .content-promo h1 b {
+        font-weight: 200;
+        font-size: 1.1em;
+    }
+    .content-promo h2 {
+        font-weight: 200;
+        font-size: 1.7em;
+    }
+}
+
+@media (max-width: 799px) {
+    .content-promo {
+        display: none;
+    }
+}
+
+.footer-conditions {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+.footer-conditions a:link {
+    color: black;
+}
+/* visited link */
+
+.footer-conditions a:visited {
+    color: black;
+}
+/* mouse over link */
+
+.footer-conditions a:hover {
+    color: black;
+}
+/* selected link */
+
+.footer-conditions a:active {
+    color: black;
+}
+
+.footer-logo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.footer-logo img {
+    width: 200px;
+    height: auto;
+}
+
+.text-login {
+    background-color: black !important;
+    color: white !important;
+    border-color: black !important;
+}
+
+.login-bg {
+    background: url("../../img/bgs/landscape.jpg") no-repeat center center fixed;
+    filter: progid: DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bgs/landscape.jpg', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bgs/landscape.jpg', sizingMethod='scale')";
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+@media (max-width: 800px) {
+    .login-wrapper {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+    #inputs {
+        max-height: 350px;
+    }
+    #btn_login {
+        margin-top: -50px !important;
+    }
+}
+
+@media (min-width: 800px) {
+    .login-wrapper {
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+    .login-wrapper .box {
+        max-height: 500px;
+    }
+}
+
+.login-wrapper .logo {
+    margin-bottom: 45px;
+    position: relative;
+    left: -2px;
+}
+
+.login-wrapper .box {
+    margin: 40px;
+    padding: 0 0 30px;
+    float: right;
+    width: 350px;
+    /*box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.3);*/
+    border-radius: 5px;
+    background: #b7bac2 ;
+}
+
+.login-wrapper .box .content-wrap {
+    width: 82%;
+    margin: 0 auto;
+}
+
+.login-wrapper .box h6 {
+    text-transform: uppercase;
+    margin: 0 0 30px 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.login-wrapper .box input[type="text"],
+.login-wrapper .box input[type="password"] {
+    font-size: 15px;
+    height: 40px;
+    border-color: #b2bfc7;
+    padding-left: 12px;
+}
+
+.login-wrapper .box input[type="password"] {}
+
+.login-wrapper .box input:-moz-placeholder {
+    color: #9ba8b6;
+    font-size: 13px;
+    letter-spacing: 0px;
+}
+
+.login-wrapper .box input:-ms-input-placeholder {
+    color: #9ba8b6;
+    letter-spacing: 0px;
+    font-size: 13px;
+}
+
+.login-wrapper .box input::-webkit-input-placeholder {
+    color: #9ba8b6;
+    letter-spacing: 0px;
+    font-size: 13px;
+}
+
+.login-wrapper .box a.forgot {
+    display: block;
+    text-align: right;
+    text-decoration: underline;
+    color: #3d88ba;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.login-wrapper .box .remember {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.login-wrapper .box .remember input[type="checkbox"] {
+    float: left;
+    margin-right: 8px;
+}
+
+.login-wrapper .box .remember label {
+    float: left;
+    color: #4a576a;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.login-wrapper .box .login {
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 8px 30px;
+}
+
+.login-wrapper .no-account {
+    margin: 0 auto;
+    float: none;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+.login-wrapper .no-account p {
+    display: inline-block;
+    color: #4a576a;
+}
+
+.login-wrapper .no-account a {
+    color: #4a576a;
+    margin-left: 7px;
+    border-bottom: 1px solid;
+    transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    /* Firefox 4 */
+    
+    -webkit-transition: all .1s linear;
+    /* Safari and Chrome */
+    
+    -o-transition: all .1s linear;
+    /* Opera */
+}
+
+.login-wrapper .no-account a:hover {
+    text-decoration: none;
+    color: #fff;
+    border-bottom-color: #fff;
+}
+/* background switcher */
+
+.bg-switch {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    top: 60px;
+    border-radius: 0px 10px 10px 0px;
+    padding: 10px 10px 0px 10px;
+    z-index: 999;
+}
+
+.bg-switch .bgs .bg {
+    text-align: center;
+    margin-bottom: 13px;
+    text-decoration: none;
+    display: block;
+}
+
+.bg-switch .bgs .bg.active img {
+    border-color: #000;
+}
+
+.bg-switch .bgs .bg img {
+    width: 80px;
+    height: 60px;
+    border: 2px solid #9fcef1;
+    cursor: pointer;
+}
+/* responsive */
+
+@media (max-width: 767px) {
+    .login-wrapper .box {
+        width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-wrapper .box {
+        width: 90%;
+    }
+}

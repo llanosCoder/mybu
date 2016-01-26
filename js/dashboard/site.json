@@ -1,0 +1,54 @@
+{
+  "site": {
+    "header": {
+      "phone": "92963011",
+      "mail": "demo@nfn.cl"
+    },
+    "nav_menu": {
+      "nav_item_1": "Inicio",
+      "nav_item_2": "Quienes Somos",
+      "nav_item_3": "Que Hacemos",
+      "nav_item_4": "Contacto"
+    },
+    "slider": {
+      "slider_tittle_1": "Bievenido 1",
+      "slider_tittle_2": "Bievenido 2",
+      "slider_tittle_3": "Bievenido 3",
+      "slider_subtitule_1": "Edicion 1",
+      "slider_subtitule_2": "Edicion 2",
+      "slider_subtitule_3": "Edicion 3",
+      "slider_description_1": "Desarrollado por NFN 1",
+      "slider_description_2": "Desarrollado por NFN 2",
+      "slider_description_3": "Desarrollado por NFN 3"
+    },
+    "content": {
+      "content_tittle": "Bienvenido a NFN",
+      "content_subtitule": "Conoce nuestro sistema de creación WEB!",
+      "content_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa."
+    },
+    "services": {
+      "service_1_icon": "fa-users",
+      "service_1_tittle": "Para Todos",
+      "service_1_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "service_2_icon": "fa-gear",
+      "service_2_tittle": "Facil de Usar",
+      "service_2_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "service_3_icon": "fa-book",
+      "service_3_tittle": "Documentado",
+      "service_3_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "service_4_icon": "fa-area-chart",
+      "service_4_tittle": "Aumenta tus Ventas",
+      "service_4_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "copyright": {
+      "copyright_name": "NFN"
+    },
+    "contact": {
+      "contact_description": "Contáctanos y conoce toda la gama de servicios que tenemos para tí.",
+      "contact_direction": "Alonso de Cordova Of. 5870",
+      "contact_city": "Las Condes, Santiago",
+      "contact_country": "Chile",
+      "contact_phone": "92963011"
+    }
+  }
+}

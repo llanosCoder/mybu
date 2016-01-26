@@ -1,0 +1,591 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="robots" content="index,follow">
+    <title>Ficha de contrato</title>
+
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+
+    <!-- Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Style Gritter-->
+    <link href="css/jquery.gritter.css" type="text/css" rel="stylesheet">
+    <link href="css/style_gritter.css" rel="stylesheet" type="text/css" />
+    
+    <!-- DatePicker -->
+    <link href="css/datepicker.css" rel="stylesheet" type="text/css"/>
+
+    <style>
+        .error {
+            display: none !important;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- multistep form -->
+
+    <div class="container">
+        <div class="col-md-12">
+
+
+            <div class="page-header">
+                <a class="navbar-brand" href="index.html"><img class="img-responsive" style="position:relative; height:65px; top:-40px;" alt="" src="img/logo.png">
+                </a>
+                <h3 class="pull-right">Ficha contrato cliente
+					</h3>
+                <br>
+                <br>
+            </div>
+
+
+
+
+        </div>
+
+        <div class="cold-md-12" style="float: right;">
+            <a href="#" data-toggle="modal" data-target="#login" title="Ver Fichas"><i class="fa fa-external-link fa-2x"></i>Ver fichas</a>
+        </div>
+
+
+        <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-dialog-center form-dialog">
+                <div class="modal-content text-center">
+                    <div class="modal-header" data-switcher style="background-image: url('img/color-polygons/blue.jpg')">
+                        <br>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Inicia Sesión </h3>
+                        <span class="subtitle">Entra y revisa las fichas creadas.</span>
+                        <div><br></div>
+                        <form id="login" class="contact-form">
+
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="usuario" placeholder="Usuario" required autocomplete="off">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" name="pass" class="form-control" placeholder="Password" required autocomplete="off">
+                            </div>
+
+                            <input type="submit" class="btn btn-md btn-primary btn-center" value="Entrar">
+                        </form>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
+
+        <form id="formulario" autocomplete="off">
+            <!-- progreso -->
+            <!--ul id="progreso">
+                <li class="active"><a href="#" style="color:black;"><strong>Datos Clientes</strong></a>
+                </li>
+                <li><a href="#" style="color:black;"><strong>Dirección del cliente</strong></a>
+                </li>
+                <li><a href="#" style="color:black;"><strong>Datos de contacto</strong></a>
+                </li>
+                <li><a href="#" style="color:black;"><strong>Productos y/o Servicios</strong></a>
+                </li>
+            </ul>
+            <!-- fieldsets -->
+            
+            <div id="ocultar1" style="display:block;" class="fondo">
+                <h2 class="fs-title">Datos de Ficha</h2>
+                <h3 class="fs-subtitle">Paso 1</h3>
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+
+                            <input type="text" name="fecha_contrato" placeholder="Fecha de contrato"  class="form-control datepicker" data-date-format="yyyy-mm-dd">
+
+                        </div>
+                        
+                        
+
+                    </div>
+                    
+                    
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+
+                            <input type="text" name="nmr_folio" placeholder="Nº Folio"  class="form-control">
+
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+                <!--input type="button" name="previous" class="previous action-button" value="Atrás" /-->
+                
+                <input type="button" name="next" class="probar action-button" id="paso1" value="Siguiente" />
+            </div>
+            
+            
+            <div id="ocultar2" style="display:none;" class="fondo">
+                <h2 class="fs-title">Datos Clientes</h2>
+                <h3 class="fs-subtitle">Paso 2</h3>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+
+                            <select name="tipo_cliente" class="form-control" >
+                                <option value="">Seleccione Tipo Cliente</option>
+                                <option value="1">Natural</option>
+                                <option value="2">Jurídica</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="apm" placeholder="Apellido Materno"  class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="app" placeholder="Apellido Paterno"  class="form-control">
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="nombre" placeholder="Nombres"  class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="rut" id="rut" placeholder="R.U.T" class="form-control">
+                            <div align="right" id="Verificacion">&nbsp;</div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="text" name="email" placeholder="Email"  class="form-control">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="text" name="actividad" placeholder="Actividad"  class="form-control">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="rs" placeholder="Razón Social"  class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="nmb_fant" placeholder="Nombre Fantasía /actividad"  class="form-control">
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="email_empresa" placeholder="Email"  class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="rut_empresa" id="rut_empresa" placeholder="R.U.T Empresa" class="form-control">
+                            <div align="right" id="Verificacion_emp">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="representante" placeholder="Representante Legal"  class="form-control">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="rut_repres" id="rut_repres" placeholder="R.U.T Representante" class="form-control">
+                            <div align="right" id="Verificacion_repr">&nbsp;</div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="text" name="giro" placeholder="Giro /Actividad"  class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <input type="button" name="previous" class="atras action-button" id="atras2" value="Atrás">
+                <input type="button" name="next" class="probar action-button" id="paso2" value="Siguiente" />
+            </div>
+
+
+            <div id="ocultar3" style="display:none;" class="fondo">
+                <h2 class="fs-title">Direccion del cliente</h2>
+                <h3 class="fs-subtitle">Paso 3</h3>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <input type="text" name="direccion" placeholder="Direccion"  class="form-control">
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+
+                            <select name="tipo_calle" class="form-control" >
+                                <option value="">Seleccione</option>
+                                <option value="1">Pasaje</option>
+                                <option value="2">Calle</option>
+                                <option value="3">Avenida</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="text" name="entre_calles" placeholder="Entre Calles"  class="form-control">
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="text" name="villa" placeholder="Villa / Población / Condominio"  class="form-control">
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+
+                            <select name="tipo_dp" class="form-control" >
+                                <option value="">Seleccione</option>
+                                <option value="1">Depto.</option>
+                                <option value="2">Oficina</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+
+                            <input type="text" name="piso" placeholder="Piso"  class="form-control">
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+
+                            <input type="text" name="block" placeholder="Block"  class="form-control">
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <input type="text" name="comuna" placeholder="Comuna"  class="form-control">
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <input type="text" name="ciudad" placeholder="Ciudad"  class="form-control">
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--input type="button" name="previous" class="previous action-button" value="Atrás" /-->
+                <input type="button" name="previous" class="atras action-button" id="atras3" value="Atrás">
+                <input type="button" name="next" class="probar action-button" id="paso3" value="Siguiente" />
+            </div>
+            <div id="ocultar4" style="display:none;" class="fondo">
+                <h2 class="fs-title">Datos de contacto</h2>
+                <h3 class="fs-subtitle">Paso 4</h3>
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+
+                            <input type="text" name="nombre_contacto" placeholder="Nombre Contacto"  class="form-control">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+
+                            <input type="text" name="mail_contacto" placeholder="Mail Contacto"  class="form-control">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <input type="text" name="tel_movil" placeholder="Teléfono Móvil"  class="form-control">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <input type="text" name="tel_fijo" placeholder="Teléfono Fijo"  class="form-control">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--input type="button" name="previous" class="previous action-button" value="Atrás" /-->
+                <input type="button" name="previous" class="atras action-button" id="atras4" value="Atrás">
+                <input type="button" name="next" class="probar action-button" id="paso4" value="Siguiente" />
+            </div>
+
+            <div id="ocultar5" style="display:none;" class="fondo">
+                <h2 class="fs-title">Productos Y/O Servicios</h2>
+                <h3 class="fs-subtitle">Proceso Final</h3>
+
+                <div class="alert alert-warning" role="alert" style="height:120px !important;">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Todos los planes incluyen los siguientes módulos
+                    <br>
+                    <br>
+
+                    <table style="font-size:12px;" width='50%' align="center" class="responsive">
+                        <tr>
+                            <td align="left"><i class='fa fa-check-square-o'></i> Punto de venta</td>
+                            <td align="left"><i class='fa fa-check-square-o'></i> Página Web</td>
+                        </tr>
+
+                        <tr>
+                            <td align="left"><i class='fa fa-check-square-o'></i> Productos (stock)</td>
+                            <td align="left"><i class='fa fa-check-square-o'></i> APP</td>
+                        </tr>
+
+                        <tr>
+                            <td align="center" colspan="2"><i class='fa fa-check-square-o'></i> Proveedores</td>
+                        </tr>
+                    </table>
+
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <select name="tipo_plan" class="form-control">
+                                <option value="">Seleccione Plan</option>
+                                <option value="1">Plan Inicio</option>
+                                <option value="2">Plan Grow</option>
+                                <option value="3">Plan NFN Class</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <select name="anos_servicio" class="form-control">
+                                <option value="">Años de servicio</option>
+                                <option value="1">1 Año</option>
+                                <option value="2">2 Años</option>
+                                <option value="3">3 Años</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+
+                            <input type="text" name="forma_pago" placeholder="Forma de Pago"  class="form-control">
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+
+                            <input type="text" name="n_documento" placeholder="Nº de documento"  class="form-control">
+
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="row">
+                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <input type="text" name="nombre_proveedor" placeholder="Nombre Proveedor"  class="form-control">
+
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <input type="text" name="vendedor" placeholder="Vendedor"  class="form-control">
+
+                        </div>
+                    </div>
+                    
+                </div>
+
+
+
+                <!--input type="button" name="previous" class="previous action-button" value="Atrás" /-->
+                <input type="button" name="previous" class="atras action-button" id="atras5" value="Atrás">
+                <input type="submit" name="submit" class="submit action-button" value="Finalizar Contrato" style="width:200px;" />
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="js/jquery.gritter.js" type="text/javascript"></script>
+    <script src="js/notificaciones.js" type="text/javascript"></script>
+    
+    
+    <script>
+    var paginaActualForm = 1;
+    
+    $(document).on('ready', comenzar);
+
+    function comenzar() {
+        $('.datepicker').datepicker();
+        
+        //$(".ocultar").next().children().toggle();
+        $(".probar").on('click', ir);
+        $(".atras").on('click', atras);
+        //avanzarRetrocederModal(1, true);
+
+
+    }
+
+    function ir() {
+
+        var name = $(this).attr('id');
+        var remplazar = name.replace("paso", "");
+
+         avanzar(remplazar, true);
+     
+            
+
+
+    }
+    
+    function atras(){
+        
+        var nombre= $(this).attr("id");
+        var reemplazar = nombre.replace('atras',"");
+        
+        avanzar(reemplazar, false);
+           
+    }
+
+
+    function avanzar(pagina, seguir) {
+
+        $("#ocultar" + pagina).toggle("slow").fadeOut();
+        if (seguir) {
+            pagina++;
+            paginaActualForm++;
+        } else {
+            pagina--;
+            paginaActualForm--;
+        }
+        $("#ocultar" + pagina).toggle("slow").fadeIn();
+
+    }
+</script>
+
+
+    <!-- Validate -->
+
+    <script src="js/jquery.validate.js" type="text/javascript"></script>
+    <script src="js/agregados_validation.js" type="application/javascript"></script>
+    <script src="js/validaciones.js" type="application/javascript"></script>
+    <script src="js/formulario.js" type="application/javascript"></script>
+
+    <!-- Boostrap -->
+    <script src="js/bootstrap.js" type="text/javascript"></script>
+
+    <!-- jQuery easing plugin -->
+    <script src="js/jquery.easing.min.js" type="text/javascript"></script>
+    
+    <!-- Validar Usuario -->
+   <script src="js/validar_usuario.js" type="text/javascript"></script>
+   <script src="js/traer_fichas.js" type="text/javascript"></script>
+   
+    <!-- DatePicker -->
+    <script src="js/bootstrap-datepicker.js" type="text/javascript"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<div id="ocultar1" style="display:block;">
+    <input type="text" name="1">
+    <br>
+    <input type="text" name="2">
+    <br>
+    <input type="button" class="probar" id="paso1" value="Siguiente">
+    <br>
+    <br>
+</div>
+
+<div id="ocultar2" style="display:none;">
+    <input type="text" name="3">
+    <br>
+    <input type="text" name="4">
+    <br>
+
+    <input type="button" class="atras" id="atras2" value="Atrás">
+    <input type="button" class="probar" id="paso2" value="Siguiente">
+    <br>
+    <br>
+</div>
+
+<div id="ocultar3" style="display:none;">
+    <input type="text" name="5">
+    <br>
+    <input type="text" name="6">
+    <br>
+
+    <input type="button" class="atras" id="atras3" value="Atrás">
+    <input type="button" class="probar" id="paso3" value="Siguiente">
+    <br>
+    <br>
+</div>
+
+
+<div id="ocultar4" style="display:none;">
+    <input type="text" name="7">
+    <br>
+    <input type="text" name="8">
+    <br>
+
+    <input type="button" class="atras" id="atras4" value="Atrás">
+    <input type="button" value="Enviar">
+    <br>
+    <br>
+</div>
+
+
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+
+<script>
+    var paginaActualForm = 1;
+    
+    $(document).on('ready', comenzar);
+
+    function comenzar() {
+        
+        //$(".ocultar").next().children().toggle();
+        $(".probar").on('click', ir);
+        $(".atras").on('click', atras);
+        //avanzarRetrocederModal(1, true);
+
+
+    }
+
+    function ir() {
+
+        var name = $(this).attr('id');
+        var remplazar = name.replace("paso", "");
+
+         avanzar(remplazar, true);
+     
+            
+
+
+    }
+    
+    function atras(){
+        
+        var nombre= $(this).attr("id");
+        var reemplazar = nombre.replace('atras',"");
+        
+        avanzar(reemplazar, false);
+           
+    }
+
+
+    function avanzar(pagina, seguir) {
+
+        $("#ocultar" + pagina).toggle("slow");
+        if (seguir) {
+            pagina++;
+            paginaActualForm++;
+        } else {
+            pagina--;
+            paginaActualForm--;
+        }
+        $("#ocultar" + pagina).toggle("slow");
+
+    }
+</script>

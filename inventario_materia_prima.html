@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Jaime Llanos">
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:300,200,100' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap core CSS -->
+    <link href="js/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="js/jquery.gritter/css/jquery.gritter.css" />
+
+    <link rel="stylesheet" href="fonts/font-awesome-4/css/font-awesome.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+	  <script src="http://foxythemes.net/assets/js/html5shiv.js"></script>
+	  <script src="http://foxythemes.net/assets/js/respond.min.js"></script>
+	<![endif]-->
+    <link rel="stylesheet" type="text/css" href="js/jquery.nanoscroller/nanoscroller.css" />
+    <link rel="stylesheet" type="text/css" href="js/jquery.easypiechart/jquery.easy-pie-chart.css" />
+    <link rel="stylesheet" type="text/css" href="js/bootstrap.switch/bootstrap-switch.css" />
+    <link rel="stylesheet" type="text/css" href="js/bootstrap.datetimepicker/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="js/select2-4.0.0-beta.3/dist/css/select2.css" />
+    <link rel="stylesheet" type="text/css" href="js/bootstrap.slider/css/slider.css" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/css.css" rel="stylesheet" />
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="js/jquery.datatables/bootstrap-adapter/css/datatables.css" />
+    <link rel="stylesheet" type="text/css" href="js/jquery.niftymodals/css/component.css" />
+    <link rel="stylesheet" href="js/alertify/css/alertify.min.css" />
+    <!-- include a theme, can be included into the core instead of 2 separate files -->
+    <link rel="stylesheet" href="js/alertify/css/themes/bootstrap.min.css" />
+    <link rel="stylesheet" href="js/alertify/css/alertify.min.css" />
+    <!-- include a theme, can be included into the core instead of 2 separate files -->
+    <link rel="stylesheet" href="js/alertify/css/themes/bootstrap.min.css" />
+</head>
+
+<body>
+    <noscript>
+        <meta HTTP-EQUIV="Refresh" CONTENT="0;URL=no-index.html">
+    </noscript>
+    <!-- Fixed navbar -->
+    <div id="head-nav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+        </div>
+    </div>
+
+    <div class="fixed-menu" id="cl-wrapper">
+        <div class="cl-sidebar">
+        </div>
+
+        <div class="page-aside app tree">
+            <div class="fixed nano nscroller">
+                <div class="content" id="contenidoCategorias">
+                    <div class="header">
+                        <br/>
+                        <br/>
+                        <h2 class="page-title">Materia Prima</h2>
+                    </div>
+                    <div class="tree-body"></div>
+                    <div class="tree-footer">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container-fluid" id="pcont">
+            <div style="float:left;margin-left: 15px;">
+                <a href="javascript:void(0)" id="refrescar" data-toggle="tooltip" data-placement="right" title="Recargar tabla"><i class="fa fa-refresh fa-2x"></i></a>
+            </div>
+            <div class="cl-mcont">
+            </div>
+
+        </div>
+
+    </div>
+    <div class="md-modal colored-header custom-width md-effect-7" id="form-agregar-materia_prima">
+        <div class="md-content" style="background-color:#ffffff !important; color: #555;">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h3>Materias Primas</h3>
+                </div>
+            </div>
+            <div class="modal-body form" id="form-agregar-materia_prima-body">
+                <form enctype="multipart/form-data" class="formulario">
+                    <div id="form-agregar-materia_prima-pag-1">
+                        <div class="form-group">
+                            <label>Código</label>
+                            <input type="text" id="codigo" name="codigo" class="form-control pag-1 required" placeholder="Código">
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" id="nombre" name="nombre" class="form-control pag-1 required" placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción</label>
+                            <textarea id="descripcion" name="descripcion" class="form-control pag-1 required" placeholder="Descripción"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Unidad</label>
+                            <select id="select_unidades" name="select_unidades" class="form-control pag-2 required">
+                                <option value="0"> </option>
+                                <option value="1">1</option>
+                                <option value="10">10</option>
+                                <option value="100">100</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="display:none;" id="group-unidad">
+                            <label>Unidad</label>
+                            <input type="text" id="unidad" name="unidad" class="form-control pag-1 numeric" placeholder="Unidad">
+                        </div>
+                        <div class="form-group">
+                            <label>Unidad Medida</label>
+                            <select id="select_u_medidas" name="select_u_medidas" class="form-control pag-2">
+                                <option value="0"> </option>
+                                <optgroup label="Peso">
+                                    <option value="ton">Ton</option>
+                                    <option value="kg">Kg</option>
+                                    <option value="gr">gr</option>
+                                    <option value="mg">mg</option>
+                                </optgroup>
+                                <optgroup label="Medida">
+                                    <option value="mt">Mt</option>
+                                    <option value="cm">cm</option>
+                                    <option value="mm">mm</option>
+                                </optgroup>
+                                <optgroup label="Volumen">
+                                    <option value="lt">Lt</option>
+                                    <option value="c3">cc</option>
+                                    <option value="ml">ml</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <!--Form pagina 1-->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_cerrar_modal" class="btn btn-default btn-flat md-close" data-dismiss="modal">Cerrar</button>
+                <button type="button" id="btn_aceptar_modal" class="btn btn-primary btn-flat">Guardar</button>
+            </div>
+        </div>
+    </div>
+    <div class="md-modal colored-header custom-width md-effect-7" id="form-asignar-materia">
+        <div class="md-content" style="background-color:#ffffff !important; color: #555;">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h3>Asignar productos</h3>
+                </div>
+            </div>
+            <div class="modal-body form" id="form-asignar-materia-body">
+                <form enctype="multipart/form-data" class="formulario">
+                    <div id="form-agregar-promocion-pag-1">
+                        <ul id="lista_materia_prima"></ul>
+                        <div id="lista_productos">
+                            <div class="form-group" id="item1">
+                                <label>Producto 1</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <select id="select_producto1" name="select_producto1" class="form-control pag-1 required">
+                                            <option value="0"></option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" id="unidad_producto1" style="height:28px;" class="form-control" placeholder="Unidades requeridas">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" id="agregar_producto"><i class="fa fa-plus-circle"></i></a>
+                        <a href="#" id="eliminar_producto" style="display:none;"><i class="fa fa-minus-circle"></i></a>
+                        <p style="text-align: right"><i>*Para desasignar un producto a una Materia Prima darle valor 0 a unidad.</i>
+                        </p>
+                    </div>
+                    <!--Form pagina 1-->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_cerrar_asignar" class="btn btn-default btn-flat md-close" data-dismiss="modal">Cerrar</button>
+                <button type="button" id="btn_aceptar_asignar" class="btn btn-primary btn-flat">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="md-modal colored-header custom-width md-effect-7" id="form-agregar-stock">
+        <div class="md-content" style="background-color:#ffffff !important; color: #555;">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h3>Agregar Stock</h3>
+                </div>
+            </div>
+            <div class="modal-body form" id="form-agregar-stock-body">
+                <form enctype="multipart/form-data" class="formulario">
+                    <div id="form-agregar-stock-pag-1">
+
+                        <div class="form-group">
+                            <label>Agregar Stock</label>
+                            <input type="text" id="stock_r" name="stock_r" class="form-control pag-1 required numeric">
+                        </div>
+                    </div>
+                    <!--Form pagina 1-->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_cerrar_agregar_stock" class="btn btn-default btn-flat md-close" data-dismiss="modal">Cerrar</button>
+                <button type="button" id="btn_aceptar_agregar_stock" class="btn btn-primary btn-flat">Guardar</button>
+            </div>
+        </div>
+    </div>
+    <div class="md-modal colored-header custom-width md-effect-7" id="form-editar-stock_minimo">
+        <div class="md-content" style="background-color:#ffffff !important; color: #555;">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h3>Editar Stock Mínimo</h3>
+                </div>
+            </div>
+            <div class="modal-body form" id="form-editar-stock_minimo-body">
+                <form enctype="multipart/form-data" class="formulario">
+                    <div id="form-editar-stock_minimo-pag-1">
+                        <div class="form-group">
+                            <label>Stock Mínimo</label>
+                            <input type="text" id="stock_m" name="stock_m" class="form-control pag-1 required numeric">
+                        </div>
+                    </div>
+                    <!--Form pagina 1-->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_cerrar_modal_editar_stock" class="btn btn-default btn-flat md-close" data-dismiss="modal">Cerrar</button>
+                <button type="button" id="btn_aceptar_modal_editar_stock" class="btn btn-primary btn-flat">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="md-modal colored-header custom-width md-effect-7" id="form-lista-asignados">
+        <div class="md-content" style="background-color:#ffffff !important; color: #555;">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h3>Productos Asignados</h3>
+                </div>
+            </div>
+            <div class="modal-body form" id="form-lista-asignados">
+                <ul id="listado_asignados"></ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_cerrar_form-lista-asignados" class="btn btn-default btn-flat md-close" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="md-modal colored-header custom-width md-effect-7" id="form-desasignar-materia">
+        <div class="md-content" style="background-color:#ffffff !important; color: #555;">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h3>Desasignar materia prima</h3>
+                </div>
+            </div>
+            <div class="modal-body form" id="form-lista-asignados">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label>Producto</label>
+                            <select class="select2" id="desasignar_lista_productos">
+                                <option value="0">Selecciona un producto</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-flat md-close" data-dismiss="modal">Cerrar</button>
+                <button type="button" id="btn_aceptar_desasignar" class="btn btn-primary btn-flat">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="md-overlay"></div>
+    <script src="js/jquery.js"></script>
+    <script src="js/dashboard/materia-prima.js"></script>
+    <script src="js/dashboard/mayusculizar.js"></script>
+    <script src="js/dashboard/notificaciones.js"></script>
+    <script src="js/alertify/alertify.min.js"></script>
+    <script src='js/dashboard/habilitar-deshabilitar.js'></script>
+    <script src="js/dashboard/currency.js"></script>
+    <script src="js/alertify/alertify.min.js"></script>
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf-8" src="js/datatables/media/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/jquery.datatables/bootstrap-adapter/js/datatables.js"></script>
+    <script type="text/javascript" src="js/jquery.niftymodals/js/jquery.modalEffects.js"></script>
+    <script type="text/javascript" src="js/jquery.nanoscroller/jquery.nanoscroller.js"></script>
+    <script type="text/javascript" src="js/jquery.sparkline/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easypiechart/jquery.easy-pie-chart.js"></script>
+    <script src="js/jquery.ui/jquery-ui.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.nestable/jquery.nestable.js"></script>
+    <script type="text/javascript" src="js/bootstrap.switch/bootstrap-switch.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="js/select2-4.0.0-beta.3/dist/js/select2.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.slider/js/bootstrap-slider.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="js/behaviour/general.js"></script>
+    <script src="js/skycons/skycons.js" type="text/javascript"></script>
+    <script>
+        $(".cl-sidebar").load("sidebar.html");
+    </script>
+    <script type="text/javascript">
+        $("#head-nav").load("headbar.html");
+    </script>
+
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/behaviour/voice-commands.js"></script>
+    <script src="js/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flot/jquery.flot.js"></script>
+    <script type="text/javascript" src="js/jquery.flot/jquery.flot.pie.js"></script>
+    <script type="text/javascript" src="js/jquery.flot/jquery.flot.resize.js"></script>
+    <script type="text/javascript" src="js/jquery.flot/jquery.flot.labels.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="fa fa-gear"></span>
+        </button>
+        <a class="navbar-brand" href="index.html#">&nbsp;<span id="titulo_dashboard" style=" width: 70% !important;"><!--i class="fa fa-gear fa-spin" style="position:absolute; top:20px; left:56px; color:#3a9cd7;"></i--></span></a>
+    </div>
+
+
+
+
+
+
+    <div class="navbar-collapse collapse" id="menu_login" style="display: none !important;">
+        <ul class="nav navbar-nav navbar-right user-nav">
+            <li class="dropdown profile_menu">
+                <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img alt="Avatar" id="myImage" src="src/default_user.png" onerror="setImagenDef();" height=30 width=30/>
+                    <span id="nombre_usuario"><i class="fa fa-gear fa-spin"></i></span> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="perfil.html"><i class="fa fa-user"></i> Perfil</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li id="salir"><a href="#"><i class="fa fa-fw fa-power-off"></i> Salir</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right not-nav" style="display:none;" id="notification-fa">
+            <li class="button dropdown">
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="true" id="hayNotificacion">
+                    
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <div class="nano nscroller has-scrollbar">
+                            <div class="content" tabindex="0" style="right: -15px;">
+                                <ul id="detalleNotificacion">
+                                   
+                                </ul>
+                            </div>
+                            <div class="pane" style="display: block;">
+                                <div class="slider" style="height: 155px; top: 0px;"></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right not-nav" style="display:none;" id="expand-fa">
+            <li class="button"><a href="#" id="expand-button"><i class="fa fa-expand"></i></a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right not-nav" style="display:none;" id="print-fa">
+            <li class="button"><a href="#" id="print-button"><i class="fa fa-print"></i></a>
+            </li>
+        </ul>
+        <!--ul class="nav navbar-nav text-centered not-nav" style="width:200px;"><li><a></a></li></ul>
+
+        <ul class="nav navbar-nav text-centered not-nav">
+            <li>
+                <a href="http://soporte.nfnlatam.com/dashboard.html" target="_blank">TE AYUDAMOS</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav text-centered not-nav">
+            <li>
+                <a>|</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav text-centered not-nav">
+            <li>
+                <a href="http://soporte.nfnlatam.com/" target="_blank">SOPORTE</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav text-centered not-nav">
+            <li>
+                <a>|</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav text-centered not-nav app-text">
+            <li>
+                <a href="http://soporte.nfnlatam.com/app_movil.html" target="_blank">APP</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav text-centered not-nav app-text">
+            <li>
+                <a>|</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav text-centered not-nav">
+            <li>
+                <a href="http://soporte.nfnlatam.com/preguntas.html" target="_blank">PREGUNTAS FRECUENTES</a>
+            </li>
+        </ul-->
+    </div>
+</div>
+<script src="js/screenfull/screenfull.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var url = 'classes/obtener_datos_sesion.php';
+        var parametros = ['nombre', 'avatar', 'nombre_empresa'];
+        $.post(url, {
+                parametros: parametros
+            },
+            function (data) {
+                data = $.parseJSON(data);
+                $.each(data, function (i, datos) {
+                    if (datos.nombre == 0)
+                        window.location.replace("index.html");
+                    $('#myImage').attr('src', datos.avatar);
+                    $('#nombre_usuario').html(datos.nombre);
+                    //$('#titulo_dashboard').html('NFN - ' + datos.nombre_empresa);
+                });
+                $("#menu_login").show();
+            }
+        );
+    });
+
+    function setImagenDef() {
+        $('#myImage').attr('src', 'src/default_user.png');
+    }
+
+    $("#expand-button").click(function () {
+        console.log("Expand try");
+        screenfull.toggle($('.cl-wrapper')[0]);
+    });
+
+    $("#print-button").click(function () {
+        console.log("Print Try");
+        location.href = 'punto_venta_v3.1.html';
+
+    });
+
+
+    $("#salir").click(function salir() {
+        var url = 'classes/logout.php';
+        $.post(url,
+            function (data) {
+                switch (data) {
+                case '1':
+                    window.location.replace("index.html");
+                    break;
+                default:
+                    mostrar_notificacion('Error', 'No se pudo cerrar su sesión', 'warning');
+                    break;
+                }
+            });
+    });
+</script>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Jaime Llanos">
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:300,200,100' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap core CSS -->
+    <link href="js/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="js/jquery.gritter/css/jquery.gritter.css" />
+
+    <link rel="stylesheet" href="fonts/font-awesome-4/css/font-awesome.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+	  <script src="http://foxythemes.net/assets/js/html5shiv.js"></script>
+	  <script src="http://foxythemes.net/assets/js/respond.min.js"></script>
+	<![endif]-->
+    <link rel="stylesheet" type="text/css" href="js/jquery.nanoscroller/nanoscroller.css" />
+    <link rel="stylesheet" type="text/css" href="js/jquery.easypiechart/jquery.easy-pie-chart.css" />
+    <link rel="stylesheet" type="text/css" href="js/bootstrap.switch/bootstrap-switch.css" />
+    <link rel="stylesheet" type="text/css" href="js/bootstrap.datetimepicker/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="js/select2-4.0.0-beta.3/dist/css/select2.css" />
+    <link rel="stylesheet" type="text/css" href="js/bootstrap.slider/css/slider.css" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/css.css" rel="stylesheet" />
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="js/jquery.datatables/bootstrap-adapter/css/datatables.css" />
+    <link rel="stylesheet" type="text/css" href="js/jquery.niftymodals/css/component.css" />
+    <link rel="stylesheet" href="js/alertify/css/alertify.min.css" />
+    <!-- include a theme, can be included into the core instead of 2 separate files -->
+    <link rel="stylesheet" href="js/alertify/css/themes/bootstrap.min.css" />
+    <link rel="stylesheet" href="js/iCheck-1.x/skins/flat/blue.css" />
+</head>
+
+<body>
+    <noscript>
+        <meta HTTP-EQUIV="Refresh" CONTENT="0;URL=no-index.html">
+    </noscript>
+    <!-- Fixed navbar -->
+    <div id="head-nav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+        </div>
+    </div>
+
+    <div class="fixed-menu sb-collapsed" id="cl-wrapper">
+        <div class="cl-sidebar">
+        </div>
+        <div class="page-aside app tree">
+            <div class="fixed nano nscroller">
+                <div class="content">
+                    <div class="header">
+                        <br/>
+                        <br/>
+                        <h2 class="page-title">Categorías</h2>
+                    </div>
+                    <div class="tree-body">
+                        <ul class="nav nav-list treeview collapse">
+                            <li>
+                                <label class="tree-toggler nav-header" id="btn_solicitar" onClick="setSolicitud(0);" data-modal="form-solicitar-categoria"><i class="fa fa-inbox"></i> Agregar categoría nueva</label>
+                            </li>
+                            <!--li>
+                                <label id="btn_mostrar_solicitudes" onClick="mostrarSolicitudes();" class="tree-toggler nav-header"><i class="fa fa-list"></i> Ver solicitudes</label>
+                            </li-->
+                            <li>
+                                <label id="btn_mostrar_categorias" class="tree-toggler nav-header"><i class="fa fa-eye"></i> Ver Categorías</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tree-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="asignar_row" style="background-color: #8db6da; position: fixed; width: 100%; margin-left: 0em; z-index: 2;">
+            <button class="btn btn-default" id="btn_asignar_cat" onClick="asignarCategorias();" style="display:none;margin-top: 0.5em; margin-left: 4em; border-radius: 5px;"><i class="fa fa-trash"></i> Eliminar</button>
+        </div>
+        <div class="col-md-12" style="margin-top:5em;" id="wrapper">
+            <div class="col-sm-6 col-md-6" id="col-tree">
+            </div>
+
+        </div>
+
+        <div class="container-fluid" id="contenido_materias_primas">
+            <div class="cl-mcont">
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="md-modal colored-header custom-width md-effect-7" id="form-solicitar-categoria">
+        <div class="md-content" style="background-color:#ffffff !important; color: #555;">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h3>Agregar Categoría</h3>
+                </div>
+            </div>
+            <div class="modal-body form" id="form-solicitar-categoria-body">
+                <form class="formulario" onsubmit="return false;">
+                    <div id="form-agregar-promocion-pag-1">
+                        <div class="form-group">
+                            <label>Nombre de la categoría</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Nombre de la categoría" class="form-control pag-1 required" maxlength="20">
+                        </div>
+                        <div class="form-group">
+                            <label>Categoría Padre</label>
+                            <select id="select_padres" name="select_padres" class="select2 form-control pag-1 required"></select>
+                        </div>
+                    </div>
+                    <!--Form pagina 1-->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_cerrar_modal" class="btn btn-default btn-flat md-close" data-dismiss="modal">Cerrar</button>
+                <button type="button" id="btn_aceptar_modal" class="btn btn-primary btn-flat">Guardar</button>
+            </div>
+        </div>
+    </div>
+    <div class="md-modal colored-header custom-width md-effect-7" id="modal-rechazar-solicitud">
+            <div class="md-content" style="background-color:#ffffff !important; color: #555;">
+                <div class="modal-header">
+                    <div class="modal-title"><h3>Rechazar orden</h3></div>
+                </div>
+                <div class="modal-body form" id="modal-rechazar-solicitud-body">
+                    <form enctype="multipart/form-data" class="formulario">
+                            <div class="form-group">
+                                <label>Razón del rechazo</label>
+                                <input type="text" id="razon_rechazo" placeholder="Razón del rechazo" name="razon_rechazo" class="form-control pag-1 required">
+                            </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btn_cerrar_rechazar_solicitud" class="btn btn-default btn-flat md-close" data-dismiss="modal">Cerrar</button>
+                    <button type="button" id="btn_aceptar_rechazar_solicitud" class="btn btn-primary btn-flat">Guardar</button>
+                </div>
+            </div>
+        </div>
+    
+    <div class="md-overlay"></div>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(".cl-sidebar").load("sidebar.html");
+    </script>
+    <script type="text/javascript">
+        $("#head-nav").load("headbar.html");
+    </script>
+    <script src="js/dashboard/categorias.js"></script>
+    <script src="js/dashboard/mayusculizar.js"></script>
+    <script src="js/dashboard/notificaciones.js"></script>
+    <script src='js/dashboard/habilitar-deshabilitar.js'></script>
+    <script src="js/alertify/alertify.min.js"></script>
+    <script src="js/dashboard/arreglos.js"></script>
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf-8" src="js/datatables/media/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/jquery.datatables/bootstrap-adapter/js/datatables.js"></script>
+    <script type="text/javascript" src="js/jquery.niftymodals/js/jquery.modalEffects.js"></script>
+    <script type="text/javascript" src="js/jquery.nanoscroller/jquery.nanoscroller.js"></script>
+    <script type="text/javascript" src="js/jquery.sparkline/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easypiechart/jquery.easy-pie-chart.js"></script>
+    <script src="js/jquery.ui/jquery-ui.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.nestable/jquery.nestable.js"></script>
+    <script type="text/javascript" src="js/bootstrap.switch/bootstrap-switch.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="js/select2-4.0.0-beta.3/dist/js/select2.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.slider/js/bootstrap-slider.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="js/behaviour/general.js"></script>
+    <script src="js/skycons/skycons.js" type="text/javascript"></script>
+    <script src="js/iCheck-1.x/icheck.min.js" type="text/javascript"></script>
+    
+
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/behaviour/voice-commands.js"></script>
+    <script src="js/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flot/jquery.flot.js"></script>
+    <script type="text/javascript" src="js/jquery.flot/jquery.flot.pie.js"></script>
+    <script type="text/javascript" src="js/jquery.flot/jquery.flot.resize.js"></script>
+    <script type="text/javascript" src="js/jquery.flot/jquery.flot.labels.js"></script>
+</body>
+
+</html>

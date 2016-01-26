@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="login-bg" lang="es" style="background-image: url('images/login/bgs/landscape.jpg'); background-repeat: repeat !important;">
+
+<head>
+    <title>mybu</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Jaime Llanos">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="js/jquery.gritter/css/jquery.gritter.css" />
+
+
+
+    <link rel="stylesheet" type="text/css" href="css/compiled/layout.css" />
+    <link rel="stylesheet" type="text/css" href="css/compiled/elements.css" />
+    <link rel="stylesheet" type="text/css" href="css/compiled/icons.css" />
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4/css/font-awesome.css" />
+    <link rel="stylesheet" href="css/compiled/signin.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/compiled/social-buttons.css" type="text/css" media="screen" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+    <link href="js/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <script src="js/dashboard/login-facebook.js"></script>
+    <noscript>
+        <meta HTTP-EQUIV="Refresh" CONTENT="0;URL=no-index.html">
+    </noscript>
+    <div id="fb-root"></div>
+
+    <div class="nfn-overlay" style="position: fixed;width: 100%;height: 100%; display: none; top: 0;left: 0;z-index: 99999;opacity: 30;background: rgba(0,0,0,0.5);-webkit-transition: all 0.3s;-moz-transition: all 0.3s;transition: all 0.3s;">
+        <div style="position:absolute; top:50%; width:100%; height:100%;">
+            <div class="text-center"><i class="fa fa-spinner fa-spin fa-3x" style="color:white;"></i>
+                <p class="nfn-text" style="color:white;">CARGANDO</p>
+            </div>
+        </div>
+    </div>
+    <div class="login-wrapper" id="signin-wrapper" >
+        <div class="content-promo">
+            <div>
+                <h1><b>Llevar tu negocio al futuro <br><b style="font-weight: 400 !important;">es fácil</b>...</b><br>Comienza a crecer en la nube</h1>
+                <h2 hidden><a href="http://portal.mybu.cl/">Conoce más acerca de mybu <br>dando click aquí</a></h2>
+            </div>
+        </div>
+        <div class="box">
+            <div class="content-wrap formulario">
+                <div style="position:relative; left: 15%;"><img class="logo img-responsive" src="images/login/logo%20app.png" alt="logo" style="height: 150px;" />
+                </div>
+                <div id="inputs" style="margin-top: -60px;">
+                    <div class="input-group form-group">
+                        <span class="input-group-addon text-login"><i class="fa fa-user"></i></span>
+                        <input class="form-control required text-login" type="text" placeholder="Usuario" id="user" name="user">
+                    </div>
+                    <div class="input-group form-group">
+                        <span class="input-group-addon text-login"><i class="fa fa-key" ></i></span>
+                        <input class="form-control required text-login" type="password" placeholder="Contraseña" id="pass" name="pass">
+                    </div>
+                </div>
+                <span style="color:red;" id="message"></span>
+                <!--<a href="#" class="forgot">¿Olvidó su contraseña?</a>-->
+                <div class="remember">
+                    <input id="remember-me" type="checkbox">
+                    <label for="remember-me">Recordarme</label>
+                </div>
+
+                <a class="btn btn-block btn-social btn-reddit" id="btn_login">
+                    <i class="fa fa-sign-in"></i> Ingresar con mybu
+                </a>
+                <!--a class="btn-flat btn-default login" style="color: #F68A33;">Login</a-->
+
+                <a class="btn btn-block btn-social btn-facebook"  onclick="checkLoginState();">
+                    <i class="fa fa-facebook"></i>
+                    <!--fb:login-button scope="public_profile,email" onlogin=>
+                    </fb:login-button--> 
+                    Ingresar con Facebook
+                </a>
+
+                <div class="no-account">
+                    <p>No tienes una cuenta?</p>
+                    <a href="javascript:return false;" id="quieroRegistrarme">Regístrate</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="login-wrapper" id="register-wrapper" hidden>
+        <div class="box">
+            <div class="content-wrap formulario2">
+                <div id="inputs">
+                    <div style="position:relative; left: 15%;"><img class="logo img-responsive" src="images/login/logo%20app.png" alt="logo" style="height: 150px; margin-bottom: 0px;" />
+                </div>
+                    <p>Ingrese los campos para completar el registro.</p>
+                    <div class="input-group form-group">
+                        <span class="input-group-addon text-login"><i class="fa fa-user"></i></span>
+                        <input class="form-control required text-login" type="text" placeholder="Ingrese su correo" id="newUser" name="newUser" disabled="true" maxlength="100">
+                    </div>
+                    <div class="input-group form-group">
+                        <span class="input-group-addon text-login"><i class="fa fa-key" ></i></span>
+                        <input class="form-control required text-login" type="password" placeholder="Ingrese su contraseña" id="newPass" name="newPass" maxlength="20">
+                    </div>
+                    <div class="input-group form-group">
+                        <span class="input-group-addon text-login"><i class="fa fa-key" ></i></span>
+                        <input class="form-control required text-login" type="password" placeholder="Repita su contraseña" id="newPass2" name="newPass2" maxlength="20">
+                    </div>
+                </div>
+                <span style="color:red;" id="message"></span>
+
+                <a class="btn btn-block btn-social btn-reddit" id="btn_registro_normal">
+                    <i class="fa fa-sign-in"></i> Registrarme
+                </a>
+                <a href="./" class="btn btn-block btn-social btn-reddit">
+                    <i class="fa fa-reply"></i> Cancelar
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="footer-logo" hidden>
+        <img src="images/imasd.png" />
+    </div>
+    
+    <div class="footer-conditions">
+        Chile :: <a href="./">mybu </a> - <a href="#">Acerca de mybu</a> - <a href="#">Privacidad</a>
+    </div>
+    <!-- scripts -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/login/theme.js"></script>
+
+    <script src="js/dashboard/login.js"></script>
+    <script src="js/dashboard/ax.js"></script>
+
+
+    <script src="js/dashboard/notificaciones.js"></script>
+    <script src="js/jquery.gritter/js/jquery.gritter.js"></script>
+    <!-- pre load bg imgs -->
+</body>
+
+</html>

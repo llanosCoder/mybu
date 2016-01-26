@@ -1,0 +1,208 @@
+#marcas{
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+}
+
+.marca{
+    width: 100px;
+    margin-right: 40px;
+}
+
+.marca h5{
+    width: 100px;
+}
+
+.marca_logo{
+    max-width: 100px;
+    max-height: 100px;
+}
+
+#botones_marcas{
+    position: absolute;
+    right: 5%;
+    top: 12%;
+    width: 150px;
+}
+
+#loading{
+    position: absolute;
+    top:45%;
+    left:45%;
+    color: #2494F2;
+}
+
+.caution{
+    color: red;
+    font-weight: bolder;
+}
+
+.warning{
+    color: #FFC90E;
+    font-weight: bold;
+}
+
+.agregar_marca{
+    position: absolute;
+    left: 90%;
+}
+
+#form-agregar-producto{
+    position: absolute;
+    max-height: 80%;
+    
+}
+
+#mensaje{
+    position: absolute;
+    z-index: 14214142999;
+    top: 48%;
+    left: 45%;
+}
+
+.campo-erroneo{
+    border-color: red;
+    border-width: medium;
+}
+
+.edit-icon{
+    cursor: hand;
+}
+
+.sin-resultados{
+    position: absolute;
+    top: 10%;
+    left: 35%;
+}
+
+#contenido_promociones, #contenido_materias_primas, #contenido_ofertas{
+    position: relative;
+    margin-top: 3%;
+    margin-left: 3%;
+    width: 95%;
+}
+
+#contenido_admin{
+    position: relative;
+    margin-left: 3%;
+    width: 95%;
+}
+
+#btn_asignar{
+    position: absolute;
+    left: 2%;
+}
+
+#btn_agregar_oferta{
+    position: absolute;
+    right: 5%;
+}
+
+#pcont{
+    position: absolute;
+    margin-top: 3%;
+    margin-left: 1%;
+    width: 60%;
+}
+
+#carro_compras{
+    margin-bottom: 70px;
+}
+
+#tabla_carro_compra td{
+    max-width: 100px;
+}
+
+#cantidadItems{
+    width: 91px;
+}
+
+#total_carro_compra{
+    position: absolute;
+    right: 5%;
+}
+
+#tabla_promociones_cont, #tabla_ofertas_cont2{
+    margin-top: 0px;
+}
+
+#tabla_ofertas_cont{
+    margin-top: 2em;
+}
+
+.iCheck-helper{
+    margin-left: -10px;
+}
+
+.div-show{
+    display: block;
+}
+
+.div-hide{
+    display: none;
+}
+
+#btn_comprar{
+    position: fixed;
+    z-index: 3;
+    right: 3%;
+    bottom: 2%;
+}
+
+#contenido_ordenes{
+    position: relative;
+    width: 95%;
+    margin-top: 5%;
+}
+
+.tree-body{
+    height: 50%;
+    overflow-y: auto;
+}
+
+.tree-footer{
+    position: absolute;
+    bottom: 20%;
+    width: 100%;
+}
+
+.btn-bottom{
+    position: absolute;
+    left: 7.5%;
+    width: 85%;
+}
+
+.no-scroll{
+    overflow: hidden !important;
+}
+
+#body-estadisticas{
+    margin-top: 3em;
+    margin-left: 2em;
+}
+
+@-webkit-keyframes spaceboots {
+	0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+	10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+	30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+	40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+	50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+	70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+	80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+	90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+	100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+.shake {
+	-webkit-animation-name: spaceboots;
+	-webkit-animation-duration: 0.8s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+.shake {
+	display:inline-block
+}
+

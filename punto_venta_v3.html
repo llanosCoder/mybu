@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <title>mybu</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet" type="text/css">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="js/bootstrap/dist/css/nfn_bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="fonts/font-awesome-4/css/font-awesome.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="js/jquery.gritter/css/jquery.gritter.css" />
+
+    <link rel="stylesheet" type="text/css" href="js/jquery.nanoscroller/nanoscroller.css" />
+    <link rel="stylesheet" type="text/css" href="js/jquery.easypiechart/jquery.easy-pie-chart.css" />
+    <link rel="stylesheet" type="text/css" href="js/bootstrap.switch/bootstrap-switch.css" />
+    <link rel="stylesheet" type="text/css" href="js/bootstrap.datetimepicker/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="js/select2-4.0.0-beta.3/dist/css/select2.css" />
+    <link rel="stylesheet" type="text/css" href="js/bootstrap.slider/css/slider.css" />
+    <link rel="stylesheet" type="text/css" href="js/intro.js/introjs.css" />
+    <link href="js/spinner/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" type="text/css" href="js/jquery.niftymodals/css/component.css">
+    <link rel="stylesheet" type="text/css" href="js/bootstrap.multiselect/css/bootstrap-multiselect.css" />
+    <link rel="stylesheet" type="text/css" href="js/jquery.multiselect/css/multi-select.css" />
+
+    <link href="js/jquery.icheck/skins/square/blue.css" rel="stylesheet">
+
+    <!-- Slider -->
+    <link rel="stylesheet" type="text/css" href="js/bootstrap.slider/css/slider.css" />
+    <!-- Custom styles for this template -->
+    <link href="css/ptv_style.css" rel="stylesheet" />
+    <!--INICIO CODIGO PROPIO-->
+    <link href="css/ptv_v2.css" rel="stylesheet" />
+    <!--FIN CODIGO PROPIO-->
+</head>
+
+<body style="overflow: hidden;">
+
+    <!-- Fixed navbar -->
+    <div id="head-nav" class="navbar navbar-default navbar-fixed-top">
+    </div>
+
+    <div id="cl-wrapper" class="fixed-menu sb-collapsed">
+        <div class="cl-sidebar" data-position="right">
+        </div>
+        <div class="row all" id="punto-venta-full">
+
+            <div class="block-flat pie-widget examinar text-center" style="width:140px; float:left; overflow-y:hidden; overflow-x:hidden; direction: rtl !important; margin:0px; padding:10px !important;">
+                <div class="content no-padding">
+                    <div class="row cuerpo">
+                        <div class="block">
+                            <div>
+                                <h5 style="padding-left:0px; font-weight: 400; color: #e48a1c;">CATEGORÍAS</h5>
+                            </div>
+                            <div id="categorías-content" style="height:100%; overflow-y: scroll !important;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-2 col-md-2 examinar block-flat" style="width:240px; float:left; padding:10px !important;">
+                <div class="row cuerpo" id="opacity-product" style="overflow-y: auto;  opacity: 1;">
+
+                    <div>
+                        <h5 style="padding-left:15px; font-weight: 400; color: #e48a1c;">PRODUCTOS</h5>
+                    </div>
+                    <div id="opacity-product-mask" style="z-index:5 !important; position:absolute; width: 100% !important; height:100% !important; padding:10px !important; overflow-y:hidden;">
+                        <button type="button" class="btn button-example nfn-text item-producto" tittle="description"></button>
+                        <button type="button" class="btn button-example nfn-text item-producto" tittle="description"></button>
+                        <button type="button" class="btn button-example nfn-text item-producto" tittle="description"></button>
+                        <button type="button" class="btn button-example nfn-text item-producto" tittle="description"></button>
+                        <button type="button" class="btn button-example nfn-text item-producto" tittle="description"></button>
+                        <button type="button" class="btn button-example nfn-text item-producto" tittle="description"></button>
+                        <button type="button" class="btn button-example nfn-text item-producto" tittle="description"></button>
+                        <button type="button" class="btn button-example nfn-text item-producto" tittle="description"></button>
+                        <button type="button" class="btn button-example nfn-text item-producto" tittle="description"></button>
+                        <button type="button" class="btn button-example nfn-text item-producto" tittle="description"></button>
+                    </div>
+                    <div id="productos-content" style="z-index:6 !important; position:absolute; width: 100% !important; height:100% !important; padding:10px; overflow-y:auto;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8 col-md-8 punto-alone" style="float:right !important; width:calc(100% - 380px); width: -moz-calc(100% - 380px); width: -webkit-calc(100% - 380px); width: -o-calc(100% - 380px);">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="block-flat pie-widget" style="height:55px; margin-bottom:10px !important; padding:10px !important;">
+                            <div class="content no-padding col-md-6">
+                                <input type="text" id="buscador" data-toggle="tooltip" data-placement="bottom" title="[ i ] Aquí puedes realizar una busqueda personalizada" class="form-control search" placeholder="Buscar..." onkeydown="bloquearCtrlJ();" />
+
+                            </div>
+                            <div class="content  no-padding  col-md-6 text-center">
+                                <div class="checkbox">
+                                    <label style="font-size: 1em">
+                                        <input type="checkbox" value="" name="b-codigo" checked>
+                                        <span class="cr"><i class="cr-icon fa fa-check"></i></span>Código
+                                    </label>
+                                    <label style="font-size: 1em">
+                                        <input type="checkbox" value="" name="b-nombre" checked>
+                                        <span class="cr"><i class="cr-icon fa fa-check"></i></span>Nombre
+                                    </label>
+                                    <label style="font-size: 1em" id="desc-hide">
+                                        <input type="checkbox" value="" name="b-descripcion">
+                                        <span class="cr"><i class="cr-icon fa fa-check"></i></span>Descripción
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="block-flat pie-widget" style="padding:10px !important;">
+                            <div class="content no-padding">
+                                <table border="0">
+                                    <thead>
+                                        <tr style="background-color:#50c1e9; border-radius:10px; color:white;">
+                                            <th class="td-center" width="30%">Ítem</th>
+                                            <th class="td-center" width="20%">Cantidad</th>
+                                            <th class="td-center" width="20%">Precio</th>
+                                            <th class="td-center" width="20%">Total Ítem</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <div class="row cuerpo2" style="overflow-y:scroll; padding-top:0px !important; padding-left:10px !important; padding-right:10px !important; padding-bottom:0px !important;">
+                                    <table>
+                                        <tbody class="no-border-y" id="ptv-detalle">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="no-padding" style="float:left; width:200px;">
+                            <button class="btn btn-warning col-md-3 teclado" style="background-color:#e48a1c;">1</button>
+                            <button class="btn btn-warning col-md-4 teclado" style="background-color:#e48a1c;">2</button>
+                            <button class="btn btn-warning col-md-3 teclado" style="background-color:#e48a1c;">3</button>
+                            <button class="btn btn-warning col-md-3 teclado" style="background-color:#e48a1c;">4</button>
+                            <button class="btn btn-warning col-md-4 teclado" style="background-color:#e48a1c;">5</button>
+                            <button class="btn btn-warning col-md-3 teclado" style="background-color:#e48a1c;">6</button>
+                            <button class="btn btn-warning col-md-3 teclado" style="background-color:#e48a1c;">7</button>
+                            <button class="btn btn-warning col-md-4 teclado" style="background-color:#e48a1c;">8</button>
+                            <button class="btn btn-warning col-md-3 teclado" style="background-color:#e48a1c;">9</button>
+                            <button class="btn btn-warning col-md-3 teclado" style="background-color:#e48a1c;">0</button>
+                            <button class="btn btn-warning col-md-3 teclado" style="background-color:#e48a1c;"><i class="fa fa-arrow-left"></i>
+                            </button>
+                            <button class="btn btn-warning col-md-4 teclado" style="background-color:#e48a1c;">ENTER</button>
+
+                        </div>
+                        <div class="no-padding" style="float:left; width:calc(100% - 200px) !important; width: -moz-calc(100% - 200px); width: -webkit-calc(100% - 200px); width: -o-calc(100% - 200px);">
+                            <div class="block-flat pie-widget" style="background-color:#c7ebf9; z-index: 9999; padding-top: 0px !important; padding-bottom: 0px !important; margin-bottom:10px;">
+                                <div class="content no-padding">
+                                    <div class="row">
+                                        <table>
+                                            <tbody class="no-border-y no-border-x nfn-text2">
+                                                <tr>
+                                                    <td class="nfn-text2">Sub-total</td>
+                                                    <td class="text-right nfn-text2" id="sub-total"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="nfn-text2">Descuentos</td>
+                                                    <td class="text-right nfn-text2" id="descuentos"></td>
+                                                </tr>
+                                                <tr style=" font-weight: 1000;">
+                                                    <td class="nfn-text2" style="font-weight: bold; font-size: 2em !important;">TOTAL
+                                                    </td>
+                                                    <td class="text-right nfn-text2" id="precio-total" style=" font-size: 2em !important;"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-flat pie-widget" style="padding: 10px !important; margin-bottom:10px;">
+                                <div class="content no-padding">
+                                    <div class="row text-right" style="padding-right:20px;">
+
+
+                                        <button type="button" data-toggle="tooltip" data-placement="top" title="Aquí puedes vaciar tu carro de compras." class="btn btn-lg btn-info nfn-text" onclick="javascript:vaciar();"><i class="fa fa-trash" style="background-color:#50c1e9;"></i>
+                                        </button>
+                                        <button type="button" data-toggle="tooltip" data-placement="top" title="Aquí puedes ver los descuentos que se han aplicado." class="btn btn-lg btn-info descuento-button" data-modal="modal-descuentos" style="background-color:#50c1e9;"><i class="fa fa-heart"></i>
+                                            <span id="view-descuentos">DESCUENTOS</span>
+                                        </button>
+                                        <button type="button" class="btn btn-lg btn-info pay-button" data-toggle="tooltip" data-placement="top" title="[ Enter ] Presionando aquí, se procederá al pago" data-modal="modal-pagar" style="background-color:#936eb1;"><i class="fa fa-shopping-cart"></i> PAGAR</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" style="float:right !important;">
+                    <div class="text-center ads" id="banners">
+                        <br>
+                        <img src="src/banner_1.jpg" class="img-responsive" />
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!--END cl-wrapper -->
+        </div>
+    </div>
+    <div class="md-modal colored-header primary md-effect-7" id="modal-agregar">
+        <div class="md-content">
+            <div class="modal-header">
+                <h3 id="product-title">Agregar Producto</h3>
+            </div>
+            <div class="modal-body">
+                <div class="text-center" id="product-body">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-flat md-close" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary btn-flat md-close" data-dismiss="modal" id="product-add" value="0">Agregar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="md-modal colored-header primary md-effect-7" id="modal-pagar">
+        <div class="md-content">
+            <div class="modal-header">
+                <h3 id="product-title_1">Finalizar Compra</h3>
+            </div>
+            <div class="modal-body" id="pagar-body">
+                <div id="cargando-venta" style="display:none">
+                    <div class="text-center">
+                        <div class="i-circle success"> <i class="fa fa-spinner fa-spin"> </i> </div>
+                        <h4> Procesando... </h4>
+                    </div>
+                </div>
+                <div id="pre-venta">
+                    <div class="text-center">
+                        <h1 id="total-modal"><i class="fa fa-spinner fa-spin"></i></h1>
+                        <p>Selecciona el medio de pago y el monto a cancelar por ese medio, recuerda que puedes utilizar más de un medio.</p>
+                    </div>
+
+                    <table class="no-border">
+                        <tbody class="no-border-x no-border-y" id="cuerpo-de-pago">
+                            <tr>
+                                <td class="col-md-12">
+                                    <div class="input-group form-group form-group-lg">
+                                        <span class="input-group-addon">$</span>
+                                        <input type="text" class="form-control monto-pagar" id="monto-medio-0">
+                                        <div class="input-group-btn input-group-btn-lg input-group-lg bs-dropdown-to-select-group">
+                                            <button type="button" class="btn btn-primary dropdown-toggle as-is bs-dropdown-to-select" data-toggle="dropdown" tabindex="-1">
+                                                <span class="medio-pago-text" data-bind="bs-drp-sel-label">Efectivo</span>
+                                                <input type="hidden" name="country_path" data-bind="bs-drp-sel-value" value="Efectivo">
+                                                <span class="caret"></span>
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu" style=" max-height: 300px; overflow: scroll; overflow-y: scroll; overflow-x: hidden; ">
+                                                <!-- Loop -->
+                                                <li data-value="Efectivo" class="btn-medios-pago-0"><a href="#">Efectivo</a>
+                                                </li>
+                                                <li data-value="Crédito" class="btn-medios-pago-0"><a href="#">Crédito</a>
+                                                </li>
+                                                <li data-value="Débito" class="btn-medios-pago-0"><a href="#">Débito</a>
+                                                </li>
+                                                <li data-value="Crédito Directo" class="btn-medios-pago-0"><a href="#">Crédito Directo</a>
+                                                </li>
+                                                <!-- END Loop -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-center">
+                        <div id="pay-message"></div>
+                        <br>
+                        <!--h1 id="vuelto-modal"><i class="fa fa-spinner fa-spin"></i></h1-->
+                    </div>
+                    <div class="text-center" id="credito-datos" style="display:none;">
+                        <h3>Solicitud Crédito</h3>
+                        <br>
+                        <p>Ingrese los siguientes datos para verificar si el usuario cuenta con el monto solicitado.</p>
+                        <table class="no-border">
+                            <tr>
+                                <td width="30%">
+                                    <!--<input type="text" class="form-control" id="credito_rut" placeholder="Ingrese Rut(Ej: 12345678-9)">-->
+                                    <select class="select2 form-control" id="selector_usuarios">
+                                        <option value="0">Buscar RUT cliente</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" id="planes_pago">
+                                        <option value="0">Plan de pagos</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Nombre Completo</td>
+                                <td id="c_nombre_completo"><i class="fa fa-spinner fa-spin"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Monto disponible</td>
+                                <td id="c_monto"><i class="fa fa-spinner fa-spin"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Total a pagar</td>
+                                <td id="t_a_pagar"><i class="fa fa-spinner fa-spin"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Valor cuota</td>
+                                <td id="c_v_cuota"><i class="fa fa-spinner fa-spin"></i>
+                                </td>
+                            </tr>
+                            <tr id="habilitado_place" style="display:none;">
+                                <td>RUT Habilitado</td>
+                                <td>
+                                    <input type="text" data-toggle="tooltip" data-placement="top" title="RUT formato 13234654-k" id="habilitado_rut" class="form-control" placeholder="Ingrese RUT Habilitado (13234654-k)"></input>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="post-venta" style="display:none">
+                    <div class="text-center">
+                        <div class="i-circle success"> <i class="fa fa-check"> </i> </div>
+                        <h4> ¡Realizado con éxito! </h4>
+                        <p> La venta ha sido completada, </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-flat md-close" id="btn-finalizar-compra-close" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary btn-flat" id="btn-finalizar-compra" value="0" disabled>Finalizar Compra</button>
+                <button type="button" class="btn btn-primary btn-flat" id="btn-finalizar-compra-2" onclick="javascript:vaciar();" style="display:none;" value="0">Finalizar</button>
+            </div>
+        </div>
+    </div>
+    <div class="md-modal colored-header primary md-effect-7" id="modal-descuentos">
+        <div class="md-content">
+            <div class="modal-header">
+                <h3 id="product-title_2">Descuentos</h3>
+                <button type="button" class="close md-close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body" id="pagar-body_2">
+                <div class="block-flat">
+                    <div class="header">
+                        <h3>Detalle descuentos</h3>
+                    </div>
+                    <div class="content">
+                        <table class="no-border">
+                            <thead class="no-border">
+                                <tr>
+                                    <th class="text-center">Descripción</th>
+                                    <th class="text-center">Unidades</th>
+                                    <th class="text-center">Total S/D</th>
+                                    <th class="text-center  primary-emphasis"><b>Descuento</b>
+                                    </th>
+                                    <th class="text-center">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="no-border-y" id="descuentos-detalle">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="block-flat">
+                    <div class="header">
+                        <h3>Promociones Especiales</h3>
+                    </div>
+                    <div class="content">
+                        <div class="row">
+                            <div class="input-group">
+                                <select class="select2" id="selector_promociones_especiales">
+                                    <option>Seleccione una promocion</option>
+                                </select>
+                                <span class="input-group-addon btn btn-primary" id="aplicar_promocion"><i class="fa fa-check"></i> Aplicar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-flat md-close" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="md-overlay"></div>
+    <div class="nfn-overlay" style="position: fixed;width: 100%;height: 100%; display:none; top: 0;left: 0;z-index: 99999;opacity: 30;background: rgba(0,0,0,0.5);-webkit-transition: all 0.3s;-moz-transition: all 0.3s;transition: all 0.3s;">
+        <div style="position:absolute; top:50%; width:100%; height:100%;">
+            <center><i class="fa fa-spinner fa-spin fa-3x" id="nfn-overlay-animation" style="color:white;"></i>
+                <p class="nfn-text" style="color:white;">CARGANDO</p>
+            </center>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.gritter/js/jquery.gritter.js"></script>
+    <!-- Spinner -->
+    <script type="text/javascript" src="js/spinner/jquery.bootstrap-touchspin.js"></script>
+
+    <script type="text/javascript" src="js/jquery.nanoscroller/jquery.nanoscroller.js"></script>
+    <script type="text/javascript" src="js/behaviour/general.js"></script>
+    <script src="js/jquery.ui/jquery-ui.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.sparkline/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easypiechart/jquery.easy-pie-chart.js"></script>
+    <script type="text/javascript" src="js/jquery.nestable/jquery.nestable.js"></script>
+    <script type="text/javascript" src="js/bootstrap.switch/bootstrap-switch.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="js/select2-4.0.0-beta.3/dist/js/select2.min.js" type="text/javascript"></script>
+    <script src="js/skycons/skycons.js" type="text/javascript"></script>
+    <script src="js/bootstrap.slider/js/bootstrap-slider.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.icheck/icheck.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.multiselect/js/bootstrap-multiselect.js"></script>
+    <script type="text/javascript" src="js/jquery.multiselect/js/jquery.multi-select.js"></script>
+    <script type="text/javascript" src="js/jquery.niftymodals/js/jquery.modalEffects.js"></script>
+    <script src="js/intro.js/intro.js" type="text/javascript"></script>
+    <script>
+        $(".cl-sidebar").load("sidebar.html");
+    </script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //initialize the javascript
+            App.init({
+                nanoScroller: false
+            });
+
+            App.dashBoard();
+
+            //introJs().setOption('showBullets', false).start();
+
+        });
+
+        function bloquearCtrlJ() { // Verificação das Teclas
+            var tecla = window.event.keyCode; //Para controle da tecla pressionada
+            var ctrl = window.event.ctrlKey; //Para controle da Tecla CTRL
+
+            if (ctrl && tecla == 74) { //Evita teclar ctrl + j
+                console.log("detected");
+                event.keyCode = 0;
+                event.returnValue = false;
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        $.ajax({
+            type: 'GET',
+            url: 'headbar.html',
+            dataType: 'text',
+            success: function (data) {
+                $('#head-nav').html(data).promise().done(function () {
+                    console.log("Headbar Rdy!;");
+                    $("#expand-fa").show();
+                    $("#print-fa").show();
+                    $("#print-button").css("color","#D3D3D3");
+                });
+            }
+        });
+    </script>
+    <script src="js/behaviour/voice-commands.js"></script>
+
+
+    <script src="js/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flot/jquery.flot.js"></script>
+    <script type="text/javascript" src="js/jquery.flot/jquery.flot.pie.js"></script>
+    <script type="text/javascript" src="js/jquery.flot/jquery.flot.resize.js"></script>
+    <script type="text/javascript" src="js/jquery.flot/jquery.flot.labels.js"></script>
+    <script type="text/javascript" src="js/jquery.currency.js"></script>
+    <script type="text/javascript" src="js/dashboard/notificaciones.js"></script>
+    <script type="text/javascript" src="js/dashboard/punto-venta_v3.js"></script>
+
+</body>
+
+</html>
